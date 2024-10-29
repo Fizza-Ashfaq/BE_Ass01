@@ -17,3 +17,12 @@ const books=[
         price: 14.99
     }
 ]
+
+app.get('/Books', (req,res) => {
+    res.json(books);
+});
+const port=8000;
+app.listen(port,()=>
+{
+    console.log("Server listening on port " + port);
+})
