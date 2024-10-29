@@ -1,3 +1,4 @@
+const express = require('express');
 const app=express();
 const books=[
     {  id:1,
@@ -17,9 +18,13 @@ const books=[
         price: 14.99
     }
 ]
-
+app.post('/addBooks', (req, res) => {
+    const newBook = req.body;
+    newBook.id = books.length + 1; 
+    books.push(newBook);
+});
 app.get('/Books', (req,res) => {
-    res.json(books);
+    res.send(JSON.stringify(books.length));
 });
 const port=8000;
 app.listen(port,()=>
