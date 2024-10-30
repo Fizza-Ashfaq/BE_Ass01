@@ -24,13 +24,15 @@ app.post('/addBooks', (req, res) => {
     // books.push(newBook);
     res.send("books created successfully")
 });
-app.put('/api/books',  (req, res)=> {
+app.put('/books',  (req, res)=> {
     res.send("books created successfully");
     })
+app.delete('/dleteBooks', (req,res) => {
+    res.send("books deleted successfully");
+});
 app.get('/addBooks', (req,res) => {
     res.send(JSON.stringify("Total books are:"+ books.length));
 });
-
 const port=8000;
 app.listen(port,()=>
 {
