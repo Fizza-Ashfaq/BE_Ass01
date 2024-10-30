@@ -19,13 +19,18 @@ const books=[
     }
 ]
 app.post('/addBooks', (req, res) => {
-    const newBook = req.body;
-    newBook.id = books.length + 1; 
-    books.push(newBook);
+    // const newBook = req.body;
+    // newBook.id = books.length + 1; 
+    // books.push(newBook);
+    res.send("books created successfully")
 });
-app.get('/Books', (req,res) => {
-    res.send(JSON.stringify(books.length));
+app.put('/api/books',  (req, res)=> {
+    res.send("books created successfully");
+    })
+app.get('/addBooks', (req,res) => {
+    res.send(JSON.stringify("Total books are:"+ books.length));
 });
+
 const port=8000;
 app.listen(port,()=>
 {
