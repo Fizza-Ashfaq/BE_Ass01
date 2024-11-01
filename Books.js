@@ -18,22 +18,36 @@ const books=[
         price: 14.99
     }
 ]
+
+//Informational
 app.post('/addBooks', (req, res) => {
-    // const newBook = req.body;
-    // newBook.id = books.length + 1; 
-    // books.push(newBook);
-    res.send("books created successfully")
+    res.status(100).send("books created ");
 });
-app.put('/books',  (req, res)=> {
-    res.send("books created successfully");
+
+//Sucess
+app.patch('/updateBooks',  (req, res)=> {
+    res.status(200).send("books updated successfully");
     })
-app.delete('/dleteBooks', (req,res) => {
-    res.send("books deleted successfully");
+//Redirecting    
+app.put('/Redirecting', (req, res) => {
+     res.status(300).send("Redirecting");
 });
-app.get('/addBooks', (req,res) => {
+
+//Client Error
+app.put('/clientError', (req, res) => {
+    res.status(400).send("Invalid request");
+});
+
+//Internal Server Error
+app.get('/serverError', (req,res) => {
+    res.status(500).send("Internal Server error");
+});
+
+app.get('/getBooks', (req,res) => {
     res.send(JSON.stringify("Total books are:"+ books.length));
 });
-const port=8000;
+
+const port=3000;
 app.listen(port,()=>
 {
     console.log("Server listening on port " + port);
